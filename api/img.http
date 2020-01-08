@@ -1,0 +1,25 @@
+###
+POST http://admin.pbgcare.co.uk/api/pages/boahl6q23aks2n2kcqo0
+Content-Type: application/json;charset=UTF-8
+
+{
+  "attributes": {
+    "header": {
+      "image": {
+        "data": "/static/uploads/boaj7na23akt4pa5befg.jpg",
+        "name": "Our-Services-Page-Image.jpg",
+        "size": 212648
+      },
+      "pageName": "services"
+    },
+    "content": {
+      "title": "Our Services",
+      "content": "<p>a</p>"
+    }
+  },
+  "created_at": "2020-01-08T00:00:00Z",
+  "id": 3,
+  "name": "Services",
+  "route": "services",
+  "uuid": "boahl6q23aks2n2kcqo0"
+}
