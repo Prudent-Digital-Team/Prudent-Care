@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="services-children">
+    <div class="services-children" v-if="displayTitle">
       <div class="pg-title is-blue-bold">{{ pg.name }}</div>
       <div class="service-content" v-html="pg.content"></div>
       <nuxt-link to="/contact">
@@ -11,6 +11,27 @@
           rounded
         >GET IN TOUCH WITH US</b-button>
       </nuxt-link>
+    </div>
+
+    <div class="columns" v-if="!displayTitle">
+      <div class="column is-10">
+        <div class="services-children">
+          <div class="pg-title is-blue-bold">{{ pg.name }}</div>
+          <div class="service-content" v-html="pg.content"></div>
+          <nuxt-link to="/contact">
+            <b-button
+              class="service-button"
+              type="is-bg-red has-text-white is-size-6"
+              outlined
+              rounded
+            >GET IN TOUCH WITH US</b-button>
+          </nuxt-link>
+        </div>
+      </div>
+      <div class="column">
+        <img src="/img/banner/Dementia-Care-logo.jpg" alt />
+        <img src="/img/banner/Dementia-Care-Image-2.jpg" alt />
+      </div>
     </div>
   </div>
 </template>

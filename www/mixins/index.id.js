@@ -23,6 +23,11 @@ export default {
     store.commit("commitSettings", Result.settings.attributes);
     store.commit("commitservicesBanner", Result.services);
 
-    return { pg: Result.services };
+    let dispaly = false;
+    let pg = Result.services.url;
+    let val = pg.split("-")[0];
+    dispaly = val == "dementia" ? false : true;
+
+    return { pg: Result.services, displayTitle: dispaly };
   }
 };

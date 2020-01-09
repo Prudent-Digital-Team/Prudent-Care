@@ -5,8 +5,12 @@
       <nav-bar></nav-bar>
     </div>
     <section
-      class="hero service-children-image is-danger is-large"
-      :style="{ 'background-image': `url(${servicesBanner.image.data})` }"
+      class="hero serv-bg-image service-children-image is-danger is-large"
+      :style="[{ 'background-image': `url(${servicesBanner.image.data})`},
+      {'background-position': 'center'},
+      {'background-size': 'cover'},
+      {'background-repeat': 'no-repeat'}
+      ]"
     >
       <div class="hero-body">
         <div class="container"></div>
