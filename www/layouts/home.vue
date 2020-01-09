@@ -6,14 +6,14 @@
     </div>
     <section
       class="hero hero-bg is-primary is-fullheight"
-      :style="{ 'background-image': `url(/img/banner/${Banner})` }"
+      :style="{ 'background-image': `url(${homePage.image.data})` }"
     >
       <div class="hero-body">
         <div class="container homepage-container has-text-centered">
-          <img class src="/img/banner/white-logo.png" alt />
+          <img class :src="`${homePage.content.image.data}`" alt />
           <div class="container-content">
-            <p class="main-title has-text-white is-gbold">Providing the Quality home care you need</p>
-            <p class="main-subtitle">Coverage areas include Bexley and Royal Borough of Greenwich</p>
+            <p class="main-title has-text-white is-gbold">{{homePage.content.title}}</p>
+            <p class="main-subtitle">{{homePage.content.subtitle}}</p>
             <div class="buttons-container">
               <div class="columns">
                 <div class="column"></div>
@@ -66,7 +66,7 @@ export default {
     NavFooter
   },
   computed: {
-    ...mapState(["Banner"])
+    ...mapState(["homePage", "homePage"])
   }
 };
 </script>

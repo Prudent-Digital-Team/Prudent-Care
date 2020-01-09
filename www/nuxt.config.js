@@ -19,7 +19,10 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: {
+    color: "#46518c",
+    height: "5px"
+  },
   /*
    ** Global CSS
    */
@@ -56,6 +59,9 @@ export default {
     "/api": "http://127.0.0.1:5000",
     "/public": "http://127.0.0.1:5000",
     "/static": "http://127.0.0.1:5000"
+    // "/api": "https://pbgcare.co.uk/",
+    // "/public": "https://pbgcare.co.uk/",
+    // "/static": "https://pbgcare.co.uk/"
   },
   /*
    ** Build configuration

@@ -18,6 +18,7 @@ CREATE TABLE "users" (
 CREATE TABLE "services" (
   "id" bigserial PRIMARY KEY,
   "name" varchar(250),
+  "uuid" varchar(20) not null,
   "url" varchar(200) not NULL,
   "content" text,
   "image" jsonb NOT NULL,

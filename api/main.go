@@ -1,12 +1,11 @@
 package main
 
 import (
+	"api/routes"
+	"api/utils"
 	"encoding/json"
 	"io/ioutil"
 	"log"
-
-	"api/routes"
-	"api/utils"
 
 	"github.com/go-ini/ini"
 	"github.com/gorilla/sessions"
@@ -31,7 +30,9 @@ func main() {
 
 	keys, _ := cfg.GetSection("SERVER")
 
-	origins := keys.Key("ORIGINS").Strings(",")
+	origins := keys.Key("origin").Strings(",")
+
+	log.Printf("origins", origins)
 
 	e := echo.New()
 	e.Static("/public", "public")

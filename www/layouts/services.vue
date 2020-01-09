@@ -6,7 +6,7 @@
     </div>
     <section
       class="hero service-children-image is-danger is-large"
-      :style="{ 'background-image': `url(/img/banner/${Banner})` }"
+      :style="{ 'background-image': `url(${servicesBanner.image.data})` }"
     >
       <div class="hero-body">
         <div class="container"></div>
@@ -36,7 +36,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["Banner"])
+    ...mapState(["servicesBanner"])
   }
 };
 </script>

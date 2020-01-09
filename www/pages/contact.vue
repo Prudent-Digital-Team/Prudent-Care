@@ -1,16 +1,19 @@
 <template>
   <div class="contact">
-    <div class="pg-title is-blue-bold is-size-3">We Care, Let's talk</div>
+    <div class="pg-title is-blue-bold is-size-3">{{page.attributes.header.title}}</div>
     <div class="contact-content">
       <div class="columns">
         <div class="column">
           <div class="contact-container">
-            <div class="head-office is-blue">Head Office</div>
-            <p class="address">130 Old Street, London EC1V 9BD</p>
+            <div class="head-office is-blue">{{page.attributes.content.List[0].title}}</div>
+            <p class="address">{{page.attributes.content.List[0].address}}</p>
             <a
               class="email is-blue-bold is-lowercase"
-              href="mailto:info@pbgcare.co.uk"
-            >info@pbgcare.co.uk</a>
+              :href="`mailto:${page.attributes.content.List[0].email}`"
+            >{{page.attributes.content.List[0].email}}</a>
+            <p>
+              <a class="email is-blue-bold is-lowercase">{{page.attributes.content.List[0].mobile}}</a>
+            </p>
           </div>
         </div>
         <div class="column is-7">
@@ -83,9 +86,11 @@
                   class="is-grey"
                 >{{ checkboxmsg }}</b-checkbox>
               </div>
-              <button class="button is-bg-red has-text-white is-size-6 is-rounded">Send Message</button>
-
-              <!-- <b-button type="is-bg-red has-text-white is-size-6" outlined rounded>Send Message</b-button> -->
+              <button
+                :disabled="isLoading"
+                :class="isLoading ? 'is-loading':''"
+                class="button is-bg-red has-text-white is-size-6 is-rounded"
+              >Send Message</button>
             </form>
           </div>
         </div>
@@ -97,21 +102,43 @@
 <script>
 import { Notification } from "@/utils/helpers";
 
+import PageMixin from "@/mixins/index";
 export default {
+  mixins: [PageMixin],
+
   head() {
     return {
-      title: "Contact"
+      title: "Contact",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "title",
+          name: "title",
+          content:
+            "Prudent Domiciliary Care Contact Us. Care Company with coverage in Coverage areas include Bexley and Royal Borough of Greenwich"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Bexely Foremost Care Company, Uk. We Providing the Quality home care you need Coverage areas include Bexely and Royal Borough of Greenwich. Contact us today!"
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "Bexely, Care, BexleyCare, Bexely Dementia Care, Home Care United Kingdom, Elder Care "
+        }
+      ]
     };
-  },
-  async asyncData({ store }) {
-    store.commit("setbanner", "contact-us-image.jpg");
   },
   data() {
     return {
       checkbox: false,
       checkboxmsg:
         "By using this form you agree with the storage and handling of your data on this website",
-      form: {}
+      form: {},
+      isLoading: false
     };
   },
   methods: {
@@ -134,17 +161,20 @@ export default {
             url: "contacts",
             data: this.form
           };
+
+          this.isLoading = true;
           let req = await this.$store.dispatch("Postdata", param);
           if (req) {
             this.isLoading = false;
             Notification(
               this,
-              "Thank you for filling the form",
+              "Thank you for contacting us we will reach out to you soon.",
               "is-success",
               "is-top",
-              1000
+              6000
             );
             this.form = {};
+            this.checkbox = false;
           } else {
             this.isLoading = false;
             Notification(
@@ -152,7 +182,7 @@ export default {
               "An error occured. Please try again ",
               "is-danger",
               "is-top",
-              1000
+              3000
             );
           }
         } catch (error) {
@@ -163,7 +193,7 @@ export default {
             "An error occured. Please try again ",
             "is-danger",
             "is-top",
-            1000
+            3000
           );
         }
       }

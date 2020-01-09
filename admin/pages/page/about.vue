@@ -73,7 +73,12 @@ export default {
           data: form
         }
         let req = await this.$store.dispatch('Postdata', param)
-        console.log(req)
+        if (req.done) {
+          Notification(this, 'Changes saved successfully', 'is-success')
+          this.$router.push('/page')
+        } else {
+          Notification(this, 'an error occured', 'is-danger')
+        }
       }
     }
   }

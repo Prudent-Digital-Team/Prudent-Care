@@ -2,65 +2,52 @@
   <div class="process">
     <div class="pg-title is-blue-bold">Our Care Process</div>
     <div class="pg-process-content">
-      <div class="columns">
+      <div class="columns" v-for="process in page.attributes.content.List" :key="process.id">
         <div class="column is-2">
-          <img class="process-image" src="/img/banner/process/01.png" alt />
+          <img class="process-image" :src="process.image.data" alt />
         </div>
         <div class="column">
-          
-          <div
-            class="process-title is-blue is-gmedium has-text-weight-semibold"
-          >GET IN TOUCH WITH US</div>
-          <div class="proceess-content">
-            FIll in Our call back form or give us a call
-            to find out how we can help you
-          </div>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column is-2">
-          <img class="process-image" src="/img/banner/process/02.png" alt />
-        </div>
-        <div class="column">
-          <div class="process-title is-blue iis-gmedium has-text-weight-semibold">ASSESSMENT</div>
-          <div class="proceess-content">
-            We'll come out to you to find out what you or your loved ones need
-            to help stay independent at home
-          </div>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="column is-2">
-          <img class="process-image" src="/img/banner/process/03.png" alt />
-        </div>
-        <div class="column">
-          <div
-            class="process-title is-blue is-gmedium has-text-weight-semibold"
-          >CARE ASSISTANT CHOSEN &amp; CARE STARTS</div>
-          <div class="proceess-content">
-            You'll be cared for by one of our specially trained team to support you
-            to remain at home for as long as possible
-          </div>
+          <div class="process-title is-blue is-gmedium has-text-weight-semibold">{{process.title}}</div>
+          <div class="proceess-content" v-html="process.content"></div>
         </div>
       </div>
       <nuxt-link to="/contact">
         <b-button type="is-bg-red has-text-white is-size-5" outlined rounded>GET IN TOUCH WITH US</b-button>
       </nuxt-link>
     </div>
-
-    <!-- <b-button outlined rounded type="has-text-white is-bg-red">GET IN TOUCH WITH US</b-button> -->
   </div>
 </template>
 
 <script>
+import PageMixin from "@/mixins/index";
 export default {
+  mixins: [PageMixin],
+
   head() {
     return {
-      title: "Process"
+      title: "Process",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "title",
+          name: "title",
+          content:
+            "Prudent Domiciliary Care Our Process. Care Company with coverage in Coverage areas include Bexley and Royal Borough of Greenwich"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Bexely Foremost Care Company, Uk. We Providing the Quality home care you need Coverage areas include Bexely and Royal Borough of Greenwich. Contact us today!"
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "Bexely, Care, BexleyCare, Bexely Dementia Care, Home Care United Kingdom, Elder Care "
+        }
+      ]
     };
-  },
-  async asyncData({ store }) {
-    store.commit("setbanner", "Our-Process-Page-Image.jpg");
   }
 };
 </script>

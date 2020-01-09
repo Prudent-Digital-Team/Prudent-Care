@@ -11,6 +11,7 @@ export default {
     ImageUpload
   },
   async asyncData({ store, route, params }) {
+    let back = route
     let apiRoute = route.path.split('/')[1]
     let pgname = params.id
     store.commit('commitpageTitle', `View ${apiRoute}`)
@@ -31,7 +32,7 @@ export default {
       let result = await this.$validator.validateAll()
       if (result) {
         let param = {
-          url: `${this.apiRoute}/${this.pgname}`,
+          url: `${this.apiRoute}/${this.form.uuid}`,
           data: this.form
         }
         let req = await this.$store.dispatch('Postdata', param)
@@ -45,7 +46,7 @@ export default {
       this.$store.commit('commitEdit', !this.EditMode)
     },
     cancel() {
-      this.$router.push(`${this.apiRoute}`)
+      this.$router.push(`/${this.apiRoute}`)
     },
 
     toggleEdit() {

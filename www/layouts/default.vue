@@ -6,7 +6,7 @@
     </div>
     <section
       class="hero services-children is-primary is-fullheight"
-      :style="{ 'background-image': `url(/img/banner/${Banner})` }"
+      :style="{ 'background-image': `url(${PageData.image.data})` }"
     >
       <div class="hero-body">
         <div class="container"></div>
@@ -35,7 +35,7 @@ export default {
     NavFooter
   },
   computed: {
-    ...mapState(["Banner"])
+    ...mapState(["PageData"])
   }
 };
 </script>

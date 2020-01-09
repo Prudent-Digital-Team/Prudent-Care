@@ -4,27 +4,23 @@
       <b-table :data="pageList.items">
         <template slot-scope="props">
           <b-table-column label="Date" width="50">
-            <nuxt-link :to="'/testimonials/' + props.row.id"
-              >{{ props.row.created_at | moment('DD/MM/YYYY') }}
-            </nuxt-link>
+            <nuxt-link
+              :to="'/testimonials/' + props.row.id"
+            >{{ props.row.created_at | moment('DD/MM/YYYY') }}</nuxt-link>
           </b-table-column>
 
           <b-table-column label="Author" width="150">
-            <nuxt-link :to="'/testimonials/' + props.row.id">{{
+            <nuxt-link :to="'/testimonials/' + props.row.id">
+              {{
               props.row.author
-            }}</nuxt-link>
+              }}
+            </nuxt-link>
           </b-table-column>
 
           <b-table-column label=" " class="has-text-right">
-            <nuxt-link
-              :to="'/testimonials/' + props.row.id"
-              class="mdi mdi-eye icobtn"
-            />
+            <nuxt-link :to="'/testimonials/' + props.row.id" class="mdi mdi-eye icobtn" />
 
-            <a
-              @click="deleteAttrib(props.row.id)"
-              class="mdi mdi-delete icobtn"
-            />
+            <a @click="deleteAttrib(props.row.id)" class="mdi mdi-delete icobtn" />
           </b-table-column>
         </template>
 

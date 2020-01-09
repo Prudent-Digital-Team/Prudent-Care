@@ -73,6 +73,21 @@
           />
         </b-field>
         <b-field
+          label="Email Address"
+          custom-class="is-small"
+          :type="errors.has('email address') ? 'is-danger' : ''"
+          :message="errors.first('email address')"
+        >
+          <b-input
+            expanded
+            v-model="form.attributes.email"
+            name="email address"
+            :disabled="EditMode"
+            placeholder="Email Address"
+            v-validate="'required'"
+          />
+        </b-field>
+        <b-field
           label="Mobile Number"
           custom-class="is-small"
           :type="errors.has('mobile number') ? 'is-danger' : ''"

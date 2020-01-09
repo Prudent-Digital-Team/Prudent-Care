@@ -39,7 +39,12 @@
             v-validate="'required'"
           />
         </b-field>
-        <image-upload label="Header Image" v-model="form.image" @image="isImageValid($event)" />
+        <image-upload
+          label="Header Image"
+          :readonly="EditMode"
+          v-model="form.image"
+          @image="isImageValid($event)"
+        />
         <b-field
           label="Content"
           custom-class="is-small"
@@ -63,6 +68,8 @@ import CustomDropdown from '@/components/widgets/Dropdown'
 import CustomContainer from '@/components/widgets/CustomContainer'
 import CustomEditor from '@/components/widgets/CustomEditor'
 import { Slugify, unSlugify } from '@/utils/helpers'
+import { copy, Notification } from '@/utils/helpers'
+
 import PagesMix from '@/mixins/page.id'
 
 export default {

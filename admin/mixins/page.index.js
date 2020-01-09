@@ -73,6 +73,7 @@ export default {
         url: `${this.pgname}?page=${param.page}&perPage=${param.offset}`
       }
       let page = await this.$store.dispatch('Get', params)
+      this.pageList = page.store.data
     }
   }
 }

@@ -17,7 +17,7 @@
       </template>
       <template slot="end">
         <b-navbar-item tag="div">
-          <nuxt-link to="join-us">
+          <nuxt-link to="join">
             <b-button rounded class="is-bg-red has-text-white">Join Us</b-button>
           </nuxt-link>
         </b-navbar-item>

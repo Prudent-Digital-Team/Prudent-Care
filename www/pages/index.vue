@@ -10,32 +10,12 @@
       </div>
     </nav>
     <div class="columns is-8 is-variable">
-      <div class="column">
-        <div class="home-img-box" :style="{'background-image':`url(${image})`}">
+      <div class="column" v-for="pg in page.attributes.content.List" :key="pg.id">
+        <div class="home-img-box" :style="{'background-image':`url(${pg.image.data})`}">
           <div class="box-content">
-            <p class="box-title has-text-centered has-text-white">About Us</p>
-            <nuxt-link to="/about">
-              <b-button type="is-white is-size-5" outlined rounded>Learn More</b-button>
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="home-img-box" :style="{'background-image':`url(${image})`}">
-          <div class="box-content">
-            <p class="box-title has-text-centered has-text-white">Care Process</p>
-            <nuxt-link to="/process">
-              <b-button type="is-white is-size-5" outlined rounded>Learn More</b-button>
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="home-img-box" :style="{'background-image':`url(${image})`}">
-          <div class="box-content">
-            <p class="box-title has-text-centered has-text-white">Our Services</p>
-            <nuxt-link to="/services">
-              <b-button type="is-white is-size-5" outlined rounded>Learn More</b-button>
+            <p class="box-title has-text-centered has-text-white">{{pg.title}}</p>
+            <nuxt-link :to="`${pg.link}`">
+              <b-button type="is-white is-size-5" outlined rounded>{{pg.link}}</b-button>
             </nuxt-link>
           </div>
         </div>
@@ -45,7 +25,7 @@
       <div class="testimonial-title is-red">Clients Testimonials</div>
       <div class="testimonial-container">
         <div class="columns">
-          <div class="column" v-for="testimony in Testimonials" :key="testimony.id">
+          <div class="column" v-for="testimony in testimonialList.data.items" :key="testimony.id">
             <div class="box testimonial-box">
               <div class="testimonial-text is-capitalized">{{testimony.content}}</div>
               <div class="testimonial-author is-red">{{testimony.author}}</div>
@@ -58,39 +38,40 @@
 </template>
 
 <script>
+import PageMixin from "@/mixins/index";
+
 export default {
   layout: "home",
+  mixins: [PageMixin],
+
   head() {
     return {
-      title: "Homepage"
+      title: this.pgname,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "title",
+          name: "title",
+          content:
+            "Prudent Domiciliary Care - London, UK Based Intl. Care Company"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Bexley Foremost Care Company, Uk. We Providing the Quality home care you need Coverage areas include Bexley and Royal Borough of Greenwich. Contact us today!"
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "Bexley, Care, BexleyCare, Bexley Dementia Care, Home Care United Kingdom, Elder Care "
+        }
+      ]
     };
-  },
-  async asyncData({ store }) {
-    store.commit("setbanner", "home.jpg");
   },
   data() {
-    return {
-      Testimonials: [
-        {
-          content: `from when i made contact with prudent domiciliary care for
-                my mother, the manager came out to assist her needs, the care
-                started the very next day. the team were fantastic at caring for my
-                mother, i dont have any worry any more.`,
-          author: "Mrs. E.Roberts"
-        },
-        {
-          content: `The staff at prudent Domiciliary care are caring and kingand completely comfortable with them. The team and my
-            carer does a wonderful job`,
-          author: "Mr. M.Hards"
-        },
-        {
-          content: `My carers are always on time and very professional. They also make sure my care is right for me by doing 
-          my care needs assesment. They are all so good. i wouldn't be without them`,
-          author: "Mrs. D.Smith"
-        }
-      ],
-      image: "/img/banner/about.jpg"
-    };
+    return {};
   }
 };
 </script>

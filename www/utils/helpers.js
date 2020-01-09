@@ -2,6 +2,9 @@ export function clone(val) {
   return JSON.parse(JSON.stringify(val));
 }
 
+export function copy(val) {
+  return JSON.parse(JSON.stringify(val));
+}
 export function dateFormater(date) {
   let year = date.getFullYear().toString(),
     month = (date.getMonth() + 1).toString(),

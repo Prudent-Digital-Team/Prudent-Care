@@ -1,14 +1,18 @@
 <template>
   <div class="main-header is-hidden-mobile">
     <nav class="level">
-      <!-- Left side -->
       <div class="level-left">
         <div class="round is-bg-red">
           <a class="mdi mdi-phone has-text-white" href></a>
         </div>
-        <div class="level-item" v-for="mobile in Header.contactNumbers" :key="mobile.id">
+        <div class="level-item">
           <div class="mobile-numbers">
-            <a href class>{{ mobile }}</a>
+            <a href class>{{ settings.mobile }}</a>
+          </div>
+        </div>
+        <div class="level-item">
+          <div class="mobile-numbers">
+            <a href class>{{ settings.mobile2 }}</a>
           </div>
         </div>
       </div>
@@ -17,7 +21,7 @@
           <a class="mdi mdi-map-marker has-text-white" href></a>
         </div>
         <div class="address">
-          <div class="level-item">{{ Header.address }}</div>
+          <div class="level-item">{{ settings.address }}</div>
         </div>
         <div class="socials">
           <div class="level-item">
@@ -25,76 +29,32 @@
               <a class="mdi mdi-twitter has-text-white" href></a>
             </div>-->
             <div class="round is-bg-grey">
-              <a
-                class="mdi mdi-linkedin has-text-white"
-                target="_blank"
-                :href="Header.socialMedia.linkedin"
-              ></a>
+              <a class="mdi mdi-linkedin has-text-white" target="_blank" :href="settings.linkedin"></a>
             </div>
 
             <div class="round is-bg-grey">
               <a
                 class="mdi mdi-instagram has-text-white"
                 target="_blank"
-                :href="Header.socialMedia.instagram"
+                :href="settings.instagram"
               ></a>
             </div>
             <div class="round is-bg-grey">
-              <a
-                class="mdi mdi-facebook has-text-white"
-                target="_blank"
-                :href="Header.socialMedia.facebook"
-              ></a>
+              <a class="mdi mdi-facebook has-text-white" target="_blank" :href="settings.facebook"></a>
             </div>
           </div>
         </div>
       </div>
     </nav>
-    <!-- <div class="mobile-nav is-hidden-desktop">
-      <div class="columns is-mobile">
-        <div class="column is-2">
-          <div class="round is-bg-red">
-            <a class="mdi mdi-phone has-text-white" href></a>
-          </div>
-        </div>
-        <div class="column" v-for="mobile in Header.contactNumbers" :key="mobile.id">{{mobile}}</div>
-      </div>
-      <div class="columns is-mobile">
-        <div class="column is-2">
-          <div class="round is-bg-red">
-            <a class="mdi mdi-map-marker has-text-white" href></a>
-          </div>
-        </div>
-        <div class="column">{{ Header.address }}</div>
-      </div>
-      <div class="columns is-mobile">
-        <div class="column">
-          <div class="round is-bg-grey">
-            <a class="mdi mdi-twitter has-text-white" href></a>
-          </div>
-        </div>
-        <div class="column">
-          <div class="round is-bg-grey">
-            <a class="mdi mdi-linkedin has-text-white" href></a>
-          </div>
-        </div>
-        <div class="column">
-          <div class="round is-bg-grey">
-            <a class="mdi mdi-instagram has-text-white" href></a>
-          </div>
-        </div>
-        <div class="column">
-          <div class="round is-bg-grey">
-            <a class="mdi mdi-facebook has-text-white" href></a>
-          </div>
-        </div>
-      </div>
-    </div>-->
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState(["settings"])
+  },
   data() {
     return {
       Header: {

@@ -30,24 +30,11 @@ export default {
     ...mapState(['loading'])
   },
   data() {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
-    }
-  },
-
-  async mounted() {
-    this.$store.dispatch('api/Initialize')
+    return {}
   }
+
+  // async mounted() {
+  //   this.$store.dispatch('api/Initialize')
+  // }
 }
 </script>

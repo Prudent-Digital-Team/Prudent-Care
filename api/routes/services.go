@@ -8,8 +8,10 @@ import (
 
 	"github.com/jinzhu/copier"
 	"github.com/jinzhu/gorm"
+	"github.com/rs/xid"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/gommon/log"
 )
 
 type Services struct {
@@ -23,7 +25,8 @@ func (s *Services) Init(prefix string, env *utils.Enviroment) error {
 	s.Prefix = prefix
 
 	g := env.Echo.Group(prefix)
-	g.GET("/services", s.GetAll)
+	g.GET("/services/all", s.getList)
+	g.GET("/services", s.getAll)
 	g.GET("/services/:id", s.getService)
 
 	rt := g.Group("",
@@ -43,7 +46,33 @@ func (s *Services) Init(prefix string, env *utils.Enviroment) error {
 
 }
 
-func (s *Services) GetAll(c echo.Context) error {
+// GetList ...
+func (s *Services) getList(c echo.Context) error {
+	res := new(utils.Response)
+	service := new(models.Services)
+
+	// var err error
+
+	list, err := service.GETALL(s.Env.DB)
+
+	for _, items := range list {
+		items.Image, _ = json.Marshal(struct{}{})
+		items.Content = ""
+
+	}
+
+	if err != nil {
+		res.SetError(err)
+		return c.JSON(http.StatusOK, res)
+	}
+
+	res.Set("data", list)
+	return c.JSON(http.StatusOK, res)
+
+}
+
+// GetAll ...
+func (s *Services) getAll(c echo.Context) error {
 	res := new(utils.Response)
 	service := new(models.Services)
 
@@ -110,6 +139,7 @@ func (s *Services) addServices(c echo.Context) error {
 	form := struct {
 		Name    string          `json:"name" validate:"required"`
 		URL     string          `json:"url" validate:"required"`
+		UUID    string          `json:"uuid"`
 		Content string          `json:"content" validate:"required"`
 		Image   json.RawMessage `json:"image" validate:"required"`
 	}{}
@@ -123,6 +153,9 @@ func (s *Services) addServices(c echo.Context) error {
 		response.SetError(err)
 		return c.JSON(http.StatusOK, response)
 	}
+
+	form.UUID = xid.New().String()
+
 	img, err := utils.ImageHandler(form.Image, s.Env)
 	form.Image, _ = json.Marshal(img)
 
@@ -147,7 +180,7 @@ func (s *Services) addServices(c echo.Context) error {
 func (s *Services) editServices(c echo.Context) error {
 	response := new(utils.Response)
 	page := new(models.Services)
-	id, _ := utils.ToNum(c.Param("id"))
+	id := c.Param("id")
 
 	// page := &models.Services{
 	// 	ID: id,
@@ -159,7 +192,7 @@ func (s *Services) editServices(c echo.Context) error {
 		Image   json.RawMessage `json:"image" validate:"required"`
 	}{}
 
-	if err := page.GET(s.Env.DB, id); err != nil {
+	if err := page.GETBYUUID(s.Env.DB, id); err != nil {
 		response.SetError(err)
 		return c.JSON(http.StatusOK, response)
 	}
@@ -169,16 +202,23 @@ func (s *Services) editServices(c echo.Context) error {
 		return c.JSON(http.StatusOK, response)
 	}
 
-	page.ID = id
+	page.UUID = id
 
 	if err := c.Validate(form); err != nil {
 		response.SetError(err)
 		return c.JSON(http.StatusOK, response)
 	}
 
+	img, err := utils.ImageHandler(form.Image, s.Env)
+
+	if err != nil {
+		log.Fatal("an error occured while uploading images", err)
+	}
+	form.Image, _ = json.Marshal(img)
+
 	copier.Copy(page, form)
 
-	if err := page.UPDATE(s.Env.DB); err != nil {
+	if err = page.UPDATE(s.Env.DB); err != nil {
 		response.SetError(err)
 		return c.JSON(http.StatusOK, response)
 	}
@@ -188,13 +228,13 @@ func (s *Services) editServices(c echo.Context) error {
 
 }
 
-//Delete ...
-func (pg *Services) deleteServices(c echo.Context) error {
+//deleteServices...
+func (s *Services) deleteServices(c echo.Context) error {
 	response := new(utils.Response)
 	id, _ := utils.ToNum(c.Param("id"))
 	page := models.Services{ID: id}
 
-	err := utils.Transact(pg.Env.DB, func(db *gorm.DB) error {
+	err := utils.Transact(s.Env.DB, func(db *gorm.DB) error {
 		if err := page.DELETE(db); err != nil {
 			return err
 		}

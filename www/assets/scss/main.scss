@@ -229,6 +229,17 @@ html {
     section.footer {
       background-color: $blue;
       padding: 3rem 1.5rem;
+      .contact-box {
+        .contact-title {
+          font-size: 100%;
+          font-weight: bold;
+          text-transform: capitalize;
+          padding: 0px 0px 10px 0px;
+        }
+        .contact-subtitle {
+          padding: 0px 0px 15px 0px;
+        }
+      }
       .footer-content {
         padding: 50px 100px;
         color: white;

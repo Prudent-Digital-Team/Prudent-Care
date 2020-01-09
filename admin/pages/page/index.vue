@@ -7,10 +7,7 @@
             <div class="left">{{ page.name }}</div>
           </nuxt-link>
           <div class="right">
-            <nuxt-link
-              :to="'/page/' + page.route"
-              class="mdi mdi-pencil"
-            ></nuxt-link>
+            <nuxt-link :to="'/page/' + page.route" class="mdi mdi-pencil"></nuxt-link>
           </div>
         </div>
       </div>

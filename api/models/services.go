@@ -12,6 +12,7 @@ type Services struct {
 	ID        int             `json:"id"`
 	Name      string          `json:"name"`
 	URL       string          `json:"url"`
+	UUID      string          `json:"uuid"`
 	Content   string          `json:"content"`
 	Image     json.RawMessage `json:"image"`
 	CreatedAt time.Time       `json:"created_at"`
@@ -35,6 +36,12 @@ func (service *Services) All(db *gorm.DB, limit, offset int) (ss []*Services, co
 	return
 }
 
+// GETALL
+func (service *Services) GETALL(db *gorm.DB) (serviceList []*Services, err error) {
+	err = db.Find(&serviceList).Error
+	return
+}
+
 // Create a new record
 func (service *Services) Create(db *gorm.DB) error {
 	return db.Create(service).Error
@@ -43,6 +50,11 @@ func (service *Services) Create(db *gorm.DB) error {
 // GET ...
 func (service *Services) GETBYSTRING(db *gorm.DB, id string) error {
 	return db.First(service, "url = ?", id).Error
+}
+
+// GET ...
+func (service *Services) GETBYUUID(db *gorm.DB, id string) error {
+	return db.First(service, "uuid = ?", id).Error
 }
 
 // GET ...

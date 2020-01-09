@@ -14,11 +14,11 @@
       </div>
       <div class="column">
         <div class="footer-content__footer-title">Our Services</div>
-        <div v-for="a in Services" :key="a.id" class="footer-content__footer-link">
+        <div v-for="service in servicesList" :key="service.id" class="footer-content__footer-link">
           <span class="nav-title">></span>
-          <nuxt-link :to="'/services/'+a.link" class="has-text-white">
+          <nuxt-link :to="'/services/'+service.url" class="has-text-white">
             {{
-            a.name
+            service.name
             }}
           </nuxt-link>
           <div class="footer-underline"></div>
@@ -30,14 +30,16 @@
           <div class="office-title">PRUDENT DOMICILIARY CARE LIMITED</div>
           <div class="office-reg">
             <div class="office-title">Registered Office</div>
-            <div class="office-address">130 Old Street, London EC1V 9BD</div>
+            <div class="office-address">{{settings.address}}</div>
           </div>
           <a
             class="office-email has-text-white is-lowercase"
-            href="mailto:info@pbgcare.co.uk"
-          >info@pbgcare.co.uk</a>
+            :href="`mailto:${settings.email}`"
+          >{{settings.email}}</a>
         </div>
         <div class="box contact-box">
+          <div class="contact-title is-blue-bold">We are here to help</div>
+          <div class="contact-subtitle is-red is-gbold">Request a callback</div>
           <form @submit.prevent="submit">
             <b-field
               label="Fullname"
@@ -54,16 +56,16 @@
               />
             </b-field>
             <b-field
-              label="Mpbile Number"
+              label="Mobile Number"
               custom-class="is-small"
-              :type="errors.has('Mpbile Number') ? 'is-danger': ''"
-              :message="errors.first('Mpbile Number')"
+              :type="errors.has('Mobile Number') ? 'is-danger': ''"
+              :message="errors.first('Mobile Number')"
             >
               <b-input
                 v-model="form.mobile_number"
                 expanded
-                name="Mpbile Number"
-                placeholder="Mpbile Number"
+                name="Mobile Number"
+                placeholder="Mobile Number"
                 v-validate="'required'"
               />
             </b-field>
@@ -96,7 +98,10 @@
                 v-validate="'required'"
               />
             </b-field>
-            <button class="button is-bg-red has-text-white">Login</button>
+            <button
+              :class="isLoading ? 'is-loading':''"
+              class="button is-bg-blue has-text-white"
+            >Submit</button>
             <!-- <b-button class="button is-bg-red has-text-white">Submit</b-button> -->
           </form>
         </div>
@@ -112,10 +117,13 @@
 </template>
 <script>
 import { Notification } from "@/utils/helpers";
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
       form: {},
+      isLoading: false,
       Navigation: [
         { name: "Abouts Us", link: "about" },
         { name: "Services", link: "services" },
@@ -123,31 +131,11 @@ export default {
         { name: "FaQs", link: "faqs" },
         { name: "Contact Us", link: "contact" },
         { name: "Join Us", link: "join-us" }
-      ],
-
-      Services: [
-        { name: "Companionship Care", link: "Companionship-care" },
-        { name: "Palliative Care", link: "Palliative-care" },
-        {
-          name: "Emphatic End of Life Care",
-          link: "emphatic-end-of-life-care"
-        },
-        { name: "Long Term Home Care", link: "long-term-home-care" },
-        { name: "Dementia Care at Home", link: "dementia-care-at-home" },
-        { name: "Home from Hospital", link: "home-from-hospital" },
-        { name: "Take a break", link: "take-a-break" },
-        { name: "Live in Care", link: "live-in-care" },
-        {
-          name: "Physical Disability Support at Home",
-          link: "Physical-disability-Support-at-home"
-        },
-        {
-          name: "Supporting Independent Living",
-          link: "supporting-independent-living"
-        },
-        { name: "Learning Disabilities", link: "learning-disabilities" }
       ]
     };
+  },
+  computed: {
+    ...mapState(["servicesList", "settings"])
   },
   methods: {
     async submit() {
@@ -159,6 +147,8 @@ export default {
             data: this.form
           };
           let req = await this.$store.dispatch("Postdata", param);
+          this.isLoading = true;
+
           if (req) {
             this.isLoading = false;
             Notification(
