@@ -166,6 +166,11 @@ html {
           padding: 20px 0px;
           line-height: 30px;
         }
+        &-image {
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
         .service-button {
           margin: 20px 0px;
         }
