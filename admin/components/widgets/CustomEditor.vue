@@ -34,7 +34,7 @@ export default {
       editorOption: {
         modules: {
           toolbar: [
-            ['bold', 'italic', 'underline', 'strike'],
+            ['bold', 'italic', 'underline', 'strike', 'link'],
             ['clean'],
             [{ color: ['#46518c', '#fff', '#000', '#d93636'] }],
             [{ align: [] }],
