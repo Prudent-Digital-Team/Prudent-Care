@@ -21,7 +21,10 @@
 <script>
 import CustomLoad from '@/components/CustomLoad'
 import Mix from '@/mixins/index'
+
 export default {
+  middleware: ['isAuthenticated'],
+
   mixins: [Mix],
   components: {
     CustomLoad
