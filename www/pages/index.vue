@@ -10,23 +10,12 @@
       </div>
     </nav>
     <div class="columns is-8 is-variable">
-      <div
-        class="column"
-        v-for="pg in page.attributes.content.List"
-        :key="pg.id"
-      >
-        <div
-          class="home-img-box"
-          :style="{ 'background-image': `url(${pg.image.data})` }"
-        >
+      <div class="column" v-for="pg in page.attributes.content.List" :key="pg.id">
+        <div class="home-img-box" :style="{ 'background-image': `url(${pg.image.data})` }">
           <div class="box-content">
-            <p class="box-title has-text-centered has-text-white">
-              {{ pg.title }}
-            </p>
+            <p class="box-title has-text-centered has-text-white">{{ pg.title }}</p>
             <nuxt-link :to="`${pg.link}`">
-              <b-button type="is-white is-size-5" outlined rounded
-                >Learn More</b-button
-              >
+              <b-button type="is-white is-size-5" outlined rounded>Learn More</b-button>
             </nuxt-link>
           </div>
         </div>
@@ -36,18 +25,10 @@
       <div class="testimonial-title is-red">Clients Testimonials</div>
       <div class="testimonial-container">
         <div class="columns">
-          <div
-            class="column"
-            v-for="testimony in testimonialList.data.items"
-            :key="testimony.id"
-          >
+          <div class="column" v-for="testimony in testimonialList.data.items" :key="testimony.id">
             <div class="box testimonial-box">
-              <div class="testimonial-text is-capitalized">
-                {{ testimony.content }}
-              </div>
-              <div class="testimonial-author is-red">
-                {{ testimony.author }}
-              </div>
+              <div class="testimonial-text is-capitalized">{{ testimony.content }}</div>
+              <div class="testimonial-author is-red">{{ testimony.author }}</div>
             </div>
           </div>
         </div>
@@ -68,6 +49,10 @@ export default {
       title: this.pgname,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          name="google-site-verification",
+          content="6_uRinwIkY_yvmRpO4As6gITM0Z1UywXd09MZs1xz0s"
+        },
         {
           hid: "title",
           name: "title",
