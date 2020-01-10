@@ -50,8 +50,8 @@ export default {
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          name="google-site-verification",
-          content="6_uRinwIkY_yvmRpO4As6gITM0Z1UywXd09MZs1xz0s"
+          name: "google-site-verification",
+          content: "6_uRinwIkY_yvmRpO4As6gITM0Z1UywXd09MZs1xz0s"
         },
         {
           hid: "title",
