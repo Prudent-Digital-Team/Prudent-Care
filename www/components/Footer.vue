@@ -5,7 +5,7 @@
         <div class="footer-content__footer-title">EXPLORE PBG DOMICILIARY CARE</div>
         <div class="footer-content__footer-link width30" v-for="a in Navigation" :key="a.id">
           <span class="nav-title">></span>
-          <nuxt-link :to="a.link" class="has-text-white">
+          <nuxt-link :to="`/${a.link}`" class="has-text-white">
             {{
             a.name
             }}
