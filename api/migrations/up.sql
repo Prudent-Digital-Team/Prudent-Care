@@ -71,3 +71,5 @@ CREATE TABLE "logger"(
 
 INSERT INTO "users" 
 	VALUES (1, 0, 'o.davies@pbgdigital.co.uk','$2y$12$qEPrsVZe19ck8Knf/FRrR.rvWUSl7h1dfFsTapDVNl79X4edGDhoy');
+  
+insert into "users" values (2, 0, 'ericka.murphy@pbgdigital.co.uk', '$2y$12$weMCmrdVACWk4um7yXO93uXDkBF/OldFmA9KjrHeF25VEt9/86C0G');
