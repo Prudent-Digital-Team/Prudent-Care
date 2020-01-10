@@ -36,7 +36,12 @@ export default {
 
   plugins: ["~plugins/veevalidate"],
 
-  buildModules: [],
+  buildModules: [
+    "@nuxtjs/google-analytics",
+    {
+      id: "UA-156000473-1"
+    }
+  ],
   /*
    ** Nuxt.js modules
    */
