@@ -34,9 +34,9 @@
         </b-field>
       </custom-box>
       <div class="columns">
-        <div class="column is-5">
+        <nuxt-link to="/testimonials">
           <button class="button has-text-centered is-danger is-fullwidth">cancel</button>
-        </div>
+        </nuxt-link>
         <div class="column">
           <button
             @click="submit"

@@ -22,26 +22,20 @@
           :type="errors.has('content') ? 'is-danger' : ''"
           :message="errors.first('content')"
         >
-          <custom-editor
-            name="content"
-            v-validate="'required'"
-            v-model="form.content"
-          ></custom-editor>
+          <custom-editor name="content" v-validate="'required'" v-model="form.content"></custom-editor>
         </b-field>
       </custom-box>
       <div class="columns">
         <div class="column is-5">
-          <button class="button has-text-centered is-danger is-fullwidth">
-            cancel
-          </button>
+          <nuxt-link to="/faq">
+            <button class="button has-text-centered is-danger is-fullwidth">cancel</button>
+          </nuxt-link>
         </div>
         <div class="column">
           <button
             @click="submit"
             class="button has-text-centered is-bg-blue has-text-white is-fullwidth"
-          >
-            Submit
-          </button>
+          >Submit</button>
         </div>
       </div>
     </custom-container>
