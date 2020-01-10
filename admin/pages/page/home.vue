@@ -58,7 +58,7 @@
           </div>
         </div>
       </custom-box>
-      <custom-box :title="'Section: Testimonials'">
+      <custom-box :title="'Section 2'">
         <template v-slot:button>
           <button
             class="button is-blue"
