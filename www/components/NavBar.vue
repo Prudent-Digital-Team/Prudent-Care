@@ -3,7 +3,10 @@
     <b-navbar>
       <template slot="brand">
         <b-navbar-item tag="router-link" :to="{ path: '/' }">
-          <img src="/img/Dom-Care-logo.png" alt="Logo for Prudent Business Group" />
+          <img
+            src="/img/Dom-Care-logo.png"
+            alt="Hompage: Prudent Domiciliary Care- Providing Quality Home Care You Need "
+          />
         </b-navbar-item>
       </template>
       <template slot="end">
