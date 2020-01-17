@@ -7,6 +7,17 @@ CREATE TABLE "pages" (
   "created_at" date NOT NULL DEFAULT LOCALTIMESTAMP
 );
 
+CREATE TABLE "blog" (
+  "id" bigserial PRIMARY KEY,
+  "uuid" varchar(20) NOT NULL,
+  "title" varchar(100) NOT NULL,
+  "content" text NOT NULL,
+  "image" jsonb not null,
+  "slug" varchar(300) NOT NULL,
+  "author" varchar(50) NOT NULL,
+  "created_at" date NOT NULL DEFAULT LOCALTIMESTAMP
+);
+
 CREATE TABLE "users" (
   "id" serial not null PRIMARY KEY,
   "role_id" bigint NOT NULL,

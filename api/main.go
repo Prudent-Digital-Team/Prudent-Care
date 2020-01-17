@@ -74,6 +74,7 @@ func startHandlers(env *utils.Enviroment) {
 		&routes.Testimonials{},
 		&routes.Services{},
 		&routes.Pages{},
+		&routes.Blog{},
 		&routes.Settings{},
 	}
 

@@ -11,6 +11,7 @@ export const state = () => ({
     { icon: 'mdi-library-books', name: 'Pages', url: '/page' },
     { icon: 'mdi-briefcase', name: 'Services', url: '/services' },
     { icon: 'mdi-account-group', name: 'Testimonials', url: '/testimonials' },
+    { icon: 'mdi-blogger', name: 'Blog', url: '/blog' },
     { icon: 'mdi-frequently-asked-questions', name: 'Faq', url: '/faq' },
     { icon: 'mdi-contacts', name: 'Contacts', url: '/contacts' },
     { icon: 'mdi-settings', name: 'Settings', url: '/settings' }

@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/labstack/gommon/log"
-
 	"github.com/jinzhu/gorm"
 )
 
@@ -61,16 +59,4 @@ func (pg *Pages) DELETE(db *gorm.DB) error {
 // UPDATE ...
 func (pg *Pages) UPDATE(db *gorm.DB) error {
 	return db.Model(pg).Updates(*pg).Error
-}
-
-//AttributesImgHandler ...
-func AttributesImgHandler(attr json.RawMessage) (e error) {
-	var attrmap interface{}
-	err := json.Unmarshal(attr, &attrmap)
-	if err != nil {
-		log.Debug(err)
-	}
-	// log.Info(&attrmap)
-	return
-
 }

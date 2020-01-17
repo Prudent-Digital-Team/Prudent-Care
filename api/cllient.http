@@ -38,6 +38,42 @@ Content-Type: application/json;charset=UTF-8
       }
     }
 
+################ BLOG routes ###################
+
+###
+GET http://localhost:5000/api/blog?page=1&perPage=20
+
+###
+DELETE  http://localhost:5000/api/blog/boge7s5rmtijqm4aao80
+
+###
+GET http://localhost:5000/api/blog/looking-to-car
+
+###
+POST http://localhost:5000/api/blog
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title":"Care for people",
+  "content":"This is just the begginiing of the test suite",
+  "slug":"help-me-to-to-care-for-people",
+  "author": "Emmanuel Freempong",
+  "image":{}
+}
+
+###
+POST http://localhost:5000/api/blog/boges7trmtiih37bc2h0
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title":"How to Care for people",
+  "content":"This is just the begginiing of the test suite",
+  "slug":"how-to-care",
+  "author": "John Freempong",
+  "image":{}
+}
+  
+
 ################ Contacts routes ###################
 ###
 GET http://localhost:5000/api/contacts?page=1&perPage=20
