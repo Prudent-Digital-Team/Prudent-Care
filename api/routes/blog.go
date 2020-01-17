@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"strings"
 
 	"github.com/jinzhu/copier"
 	"github.com/jinzhu/gorm"
@@ -127,18 +126,14 @@ func (pg *Blog) Create(c echo.Context) error {
 	}
 
 	form.UUID = xid.New().String()
-	form.Title = strings.ToLower(form.Title)
-	form.Author = strings.ToLower(form.Author)
 
 	img, err := utils.ImageHandler(form.Image, pg.Env)
 
 	if err != nil {
 		form.Image, _ = json.Marshal(struct{}{})
 	}
+
 	form.Image, _ = json.Marshal(img)
-
-
-
 
 	copier.Copy(page, form)
 
