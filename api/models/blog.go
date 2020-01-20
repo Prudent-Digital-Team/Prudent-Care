@@ -9,14 +9,15 @@ import (
 
 // Blog ...
 type Blog struct {
-	ID        int             `json:"id"`
-	UUID      string          `json:"uuid"`
-	Title     string          `json:"title"`
-	Content   string          `json:"content"`
-	Slug      string          `json:"slug"`
-	Image     json.RawMessage `json:"image"`
-	Author    string          `json:"author"`
-	CreatedAt time.Time       `json:"created_at"`
+	ID         int             `json:"id"`
+	UUID       string          `json:"uuid"`
+	Title      string          `json:"title"`
+	Content    string          `json:"content"`
+	Slug       string          `json:"slug"`
+	Image      json.RawMessage `json:"image"`
+	Author     string          `json:"author"`
+	CategoryID int             `json:"category_id"`
+	CreatedAt  time.Time       `json:"created_at"`
 }
 
 // PagesListArray ...

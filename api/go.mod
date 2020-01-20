@@ -17,6 +17,7 @@ require (
 	github.com/labstack/echo-contrib v0.0.0-20180916154247-4aaa9fadfb82
 	github.com/labstack/gommon v0.2.9
 	github.com/leodido/go-urn v1.2.0 // indirect
+	github.com/mborgerson/GoTruncateHtml v0.0.0-20150507032438-125d9154cd1e
 	github.com/rs/xid v1.2.1
 	github.com/serenize/snaker v0.0.0-20171204205717-a683aaf2d516
 	github.com/tidwall/gjson v1.3.5

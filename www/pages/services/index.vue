@@ -2,6 +2,22 @@
   <div class="services">
     <div class="pg-title is-blue-bold">Our Services</div>
     <div class="pg-services-content" v-html="page.attributes.content.content"></div>
+    <div class="service-dropdown">
+      <b-collapse class="card faq-card" :open="isOpen">
+        <div slot="trigger" class="card-header" role="button" aria-controls="contentIdForA11y3">
+          <p class="card-header-title is-blue-bold is-size-5">Services List</p>
+          <a class="card-header-icon">
+            <b-icon :icon="isOpen ? 'menu-down' : 'menu-up'"></b-icon>
+          </a>
+        </div>
+        <div class="card-content">
+          <div
+            class="content is-blue is-glight is-size-5"
+            v-html="page.attributes.content.serviceList"
+          ></div>
+        </div>
+      </b-collapse>
+    </div>
     <nuxt-link to="/contact">
       <b-button type="is-bg-red has-text-white is-size-6" outlined rounded>GET IN TOUCH WITH US</b-button>
     </nuxt-link>
@@ -13,7 +29,9 @@ import PageMixin from "@/mixins/index";
 export default {
   mixins: [PageMixin],
   data() {
-    return {};
+    return {
+      isOpen: true
+    };
   },
   head() {
     return {

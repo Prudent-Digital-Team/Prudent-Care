@@ -20,8 +20,38 @@
         }
         nav.navbar {
           .navbar-brand {
-            img {
-              max-height: 3rem;
+            .nav-logo {
+              right: 40px;
+              img {
+                max-height: 3rem;
+              }
+            }
+
+            .blog-nav {
+              right: 40px;
+              .is-active {
+                color: black !important;
+              }
+              &:hover {
+                color: black !important;
+              }
+              span.left {
+                font-size: 30px;
+                font-family: "giloryBold";
+
+                text-transform: bold;
+                color: $red;
+                text-decoration: none;
+              }
+              span.right {
+                font-size: 30px;
+                font-family: "giloryLight";
+                text-decoration: none;
+
+                &:hover {
+                  color: black;
+                }
+              }
             }
           }
         }
@@ -119,6 +149,21 @@
                 font-weight: 60px;
               }
             }
+          }
+          .service-dropdown {
+            margin: 0px 0px 50px 0px;
+            .card-header-title {
+              // color: $red;
+              // font-size: 20px !important;
+            }
+            .card-content {
+              .content {
+                ul li a {
+                  color: $blue;
+                }
+              }
+            }
+            max-width: 100% !important;
           }
         }
         .services-children {

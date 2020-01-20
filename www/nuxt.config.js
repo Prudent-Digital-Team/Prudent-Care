@@ -34,7 +34,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: ["~plugins/veevalidate"],
+  plugins: ["~plugins/veevalidate", "~plugins/moment"],
 
   // buildModules: [
   //   [

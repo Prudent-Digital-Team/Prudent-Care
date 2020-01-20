@@ -56,7 +56,7 @@ export const actions = {
       let req = await this.$axios.$get(`api/${param.url}`)
       return req
     } catch (error) {
-      throw error
+      return error
     }
   },
 
@@ -65,7 +65,7 @@ export const actions = {
       let req = await this.$axios.$delete(`api/${param.url}`)
       return req
     } catch (error) {
-      throw error
+      return error
     }
   },
 

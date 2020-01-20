@@ -54,10 +54,11 @@ POST http://localhost:5000/api/blog
 Content-Type: application/json;charset=UTF-8
 
 {
-  "title":"Care for people",
-  "content":"This is just the begginiing of the test suite",
-  "slug":"help-me-to-to-care-for-people",
-  "author": "Emmanuel Freempong",
+  "title":"Dementia people",
+  "content":"This is just the test suite",
+  "slug":"dementia-people-care",
+  "author": "Ope ",
+  "category_id":8,
   "image":{}
 }
 

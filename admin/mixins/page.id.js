@@ -12,14 +12,27 @@ export default {
   },
   async asyncData({ store, route, params }) {
     let back = route
+    let Result = []
+
     let apiRoute = route.path.split('/')[1]
     let pgname = params.id
     store.commit('commitpageTitle', `View ${apiRoute}`)
-    let param = {
-      url: `${apiRoute}/${pgname}`
+    let asyncReq = [
+      { name: 'form', url: `${apiRoute}/${pgname}` },
+      { name: 'serviceList', url: 'services/all' }
+    ]
+    for (let a = 0; a < asyncReq.length; a++) {
+      Result[asyncReq[a].name] = await store.dispatch('Get', {
+        url: asyncReq[a].url
+      })
+      Result[asyncReq[a].name] = Result[asyncReq[a].name].store
     }
-    let req = await store.dispatch('Get', param)
-    return { form: req.store, apiRoute: apiRoute, pgname: pgname }
+    return {
+      form: Result.form,
+      services: Result.serviceList,
+      apiRoute: apiRoute,
+      pgname: pgname
+    }
   },
   data() {
     return {}

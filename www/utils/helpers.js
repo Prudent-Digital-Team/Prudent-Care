@@ -18,7 +18,26 @@ export function dateFormater(date) {
   date = `${year}-${month}-${day}T00:00:00.000Z`;
   return date;
 }
+// rmvFormatting(val) {
+//   let y = new DOMParser().parseFromString(val, "text/html");
+//   let x = y.getElementsByTagName("p")[0];
+//   return x.innerText;
+// },
 
+// clean(content) {
+//   return content.replace(/_/g, " ");
+// },
+// minify(content) {
+//   if (content.length == 0) {
+//     return content;
+//   }
+//   content = this.rmvFormatting(content);
+//   if (content.length > 70) {
+//     let minified = content.substring(0, 70);
+//     return minified + "...";
+//   }
+//   return content;
+// },
 export function timeFormater(date) {
   let year = date.getFullYear().toString(),
     month = (date.getMonth() + 1).toString(),

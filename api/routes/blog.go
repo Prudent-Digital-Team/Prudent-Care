@@ -72,6 +72,17 @@ func (pg *Blog) GetAll(c echo.Context) error {
 
 	list, count, err := pages.All(pg.Env.DB, perPage, limit)
 
+	maxlength := 200;
+	for idx, item := range(list){
+		if (idx != 0){
+			out, err := utils.TruncateHtml([]byte(item.Content), maxlength, "....")
+			if err != nil{
+				log.Info(err)
+			}
+			item.Content = string(out) 
+		}
+	}
+
 	resp := models.BlogListArray{Items: list, Total: count}
 
 	if err != nil {
@@ -82,6 +93,7 @@ func (pg *Blog) GetAll(c echo.Context) error {
 	res.Set("data", resp)
 	return c.JSON(http.StatusOK, res)
 }
+
 
 // Get...
 func (pg *Blog) Get(c echo.Context) error {
@@ -107,12 +119,13 @@ func (pg *Blog) Create(c echo.Context) error {
 	response := new(utils.Response)
 	page := new(models.Blog)
 	form := struct {
-		UUID    string          `json:"uuid"`
-		Title   string          `json:"title" validate:"required"`
-		Content string          `json:"content" validate:"required"`
-		Slug    string          `json:"slug" validate:"required"`
-		Author  string          `json:"author" validate:"required"`
-		Image   json.RawMessage `json:"image" validate:"required"`
+		UUID       string          `json:"uuid"`
+		Title      string          `json:"title" validate:"required"`
+		Content    string          `json:"content" validate:"required"`
+		Slug       string          `json:"slug" validate:"required"`
+		Author     string          `json:"author" validate:"required"`
+		CategoryID int             `json:"category_id" validate:"required"`
+		Image      json.RawMessage `json:"image" validate:"required"`
 	}{}
 
 	err := c.Bind(&form)
@@ -189,11 +202,12 @@ func (pg *Blog) Update(c echo.Context) error {
 	page := new(models.Blog)
 	id := c.Param("id")
 	form := struct {
-		Title   string          `json:"title" validate:"required"`
-		Content string          `json:"content" validate:"required"`
-		Slug    string          `json:"slug" validate:"required"`
-		Author  string          `json:"author" validate:"required"`
-		Image   json.RawMessage `json:"image" validate:"required"`
+		Title      string          `json:"title" validate:"required"`
+		Content    string          `json:"content" validate:"required"`
+		Slug       string          `json:"slug" validate:"required"`
+		Author     string          `json:"author" validate:"required"`
+		CategoryID int             `json:"category_id" validate:"required"`
+		Image      json.RawMessage `json:"image" validate:"required"`
 	}{}
 
 	if err := page.GETBYUUID(pg.Env.DB, id); err != nil {

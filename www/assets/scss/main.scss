@@ -3,6 +3,9 @@ html {
     // font-family: "giloryLight";
     font-family: "giloryMedium";
     .header-container {
+      -webkit-box-shadow: -1px 5px 13px -8px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: -1px 5px 13px -8px rgba(0, 0, 0, 0.75);
+      box-shadow: -1px 5px 13px -8px rgba(0, 0, 0, 0.75);
       padding: 10px 30px;
       .main-header {
         padding: 10px 0px;
@@ -22,6 +25,31 @@ html {
         .navbar-brand {
           img {
             max-height: 3rem;
+          }
+          .blog-nav {
+            .is-active {
+              color: black !important;
+            }
+            &:hover {
+              color: black !important;
+            }
+            span.left {
+              font-size: 35px;
+              font-family: "giloryBold";
+
+              text-transform: bold;
+              color: $red;
+              text-decoration: none;
+            }
+            span.right {
+              font-size: 35px;
+              font-family: "giloryLight";
+              text-decoration: none;
+
+              &:hover {
+                color: black;
+              }
+            }
           }
         }
       }
@@ -122,6 +150,167 @@ html {
           line-height: 30px;
         }
       }
+
+      // ========== BLOG ================
+      .blog {
+        .caption-blog {
+          .bcontent {
+            background-color: $light-grey;
+            .left {
+              background-size: cover;
+              background-position: 50%;
+              height: 470px;
+            }
+            .right {
+              color: $blue;
+
+              padding: 30px;
+              .sub-title {
+                font-size: 14px;
+                padding: 10px 0px;
+              }
+              .title {
+                font-size: 20px;
+                font-family: "giloryBold";
+                color: $red;
+              }
+              .content {
+                font-size: 15px;
+              }
+              .date {
+              }
+            }
+          }
+        }
+        section.blog-content {
+          margin-top: 60px;
+          .blog-container {
+            margin: 10px 0px;
+            min-height: 380px;
+            &:hover {
+              box-shadow: 0 12px 60px rgba(10, 10, 10, 0.3);
+              // animation-delay: 100ms;
+              // order: 1;
+              animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+              animation-fill-mode: both;
+              animation-duration: 0.4s;
+              transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            background-color: $light-grey;
+            .blog-author {
+              color: $blue;
+              font-size: 10px;
+              font-weight: 700;
+              letter-spacing: 1.2px;
+              text-align: right;
+              text-transform: uppercase;
+              margin: -10px 0 10px;
+            }
+            .blog-image {
+              height: 160px;
+              background-position: 50%;
+              background-repeat: no-repeat;
+              background-size: cover;
+              margin: 0 -20px;
+              // border-top: 2px solid #2d609a;
+              // border-bottom: 2px solid #2d609a;
+            }
+            .blog-content {
+              .bg-text {
+                padding: 10px 0px 20px 0px;
+                color: $blue;
+              }
+              h1.title {
+                margin: 0;
+                padding: 10px 0px;
+                font-family: "giloryBold";
+                height: 35px;
+                font-size: 20px;
+                font-weight: 400;
+                // text-align: center;
+                overflow: hidden;
+                color: $red;
+              }
+            }
+            .right {
+              display: flex;
+              margin-bottom: -15px;
+              justify-content: flex-end;
+              font-family: "giloryBold";
+              font-size: 12px;
+              .blog-link {
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+
+      .blog-inner {
+        .container {
+          .blog-container {
+            margin-bottom: 50px;
+            background-color: $light-grey;
+            .top-image {
+              height: 500px;
+              background-position: 50%;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+            .blog-content {
+              padding: 20px;
+              .b-sub {
+                font-size: 15px;
+                color: $blue;
+                text-align: right;
+                padding: 10px 0px;
+              }
+              .b-title {
+                font-size: 25px;
+                font-family: "giloryBold";
+                color: $red;
+              }
+              .is-flex {
+                align-items: center;
+                font-size: 11px;
+                .divider {
+                  margin: 0px 10px;
+                }
+              }
+              .b-content {
+                padding: 10px 0px;
+                font-size: 15px;
+                line-height: 30px;
+                color: $blue;
+              }
+            }
+          }
+          .read-more {
+            margin: 20px 0px;
+            color: $blue;
+            font-family: "giloryBold";
+          }
+          .blog-jumper {
+            .item-container {
+              height: 290px;
+              background-color: $light-grey;
+              .b-img {
+                height: 200px;
+                background-position: 50%;
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+              .b-title {
+                padding: 10px 10px;
+                font-size: 15px;
+                font-family: "giloryBold";
+                color: $red;
+              }
+            }
+          }
+        }
+      }
+
       // ========PROCESS=============
       .process {
         padding: 0px 40px;
@@ -149,14 +338,24 @@ html {
             margin-left: 20px;
             li {
               margin: 20px 0px;
+              list-style: disc;
             }
           }
-          // .servicesList {
-          //   padding: 10px 0px;
-          //   span.content {
-          //     font-weight: 60px;
-          //   }
-          // }
+        }
+        .service-dropdown {
+          margin: 0px 0px 50px 0px;
+          .card-header-title {
+            // color: $red;
+            // font-size: 20px !important;
+          }
+          .card-content {
+            .content {
+              ul li a {
+                color: $blue;
+              }
+            }
+          }
+          max-width: 70%;
         }
       }
       // ========Inner Services Pages=====

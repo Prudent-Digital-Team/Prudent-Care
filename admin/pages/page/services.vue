@@ -74,6 +74,22 @@
           </template>
         </b-table>-->
       </custom-box>
+      <custom-box :title="'Section: 3'">
+        <b-field
+          label="Content"
+          custom-class="is-small"
+          :type="errors.has('content') ? 'is-danger' : ''"
+          :message="errors.first('content')"
+        >
+          <custom-editor
+            :class="errors.has('title') ? 'custom-help' : ''"
+            name="content"
+            :disabled="EditMode"
+            v-validate="'required'"
+            v-model="pageData.attributes.content.serviceList"
+          ></custom-editor>
+        </b-field>
+      </custom-box>
     </custom-container>
   </div>
 </template>

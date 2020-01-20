@@ -16,8 +16,12 @@ export default {
   async asyncData({ store, route }) {
     let name = route.path.split('/')[1]
     store.commit('commitpageTitle', `Create ${name}`)
+    let param = {
+      url: 'services/all'
+    }
+    let req = await store.dispatch('Get', param)
 
-    return { route: name }
+    return { route: name, services: req.store }
   },
   data() {
     return {

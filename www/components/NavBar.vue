@@ -37,7 +37,7 @@ export default {
         { name: "Abouts Us", link: "/about" },
         { name: "Services", link: "/services" },
         { name: "Process", link: "/process" },
-        // { name: "Blog", link: "/blog" },
+        { name: "Blog", link: "/blog" },
         { name: "Faqs", link: "/faqs" },
         { name: "Contact Us", link: "/contact" }
       ]

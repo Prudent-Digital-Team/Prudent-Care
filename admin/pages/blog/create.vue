@@ -36,20 +36,46 @@
             </b-field>
           </div>
         </div>
-        <b-field
-          label="Slug Name"
-          custom-class="is-small"
-          :type="errors.has('Slug Name') ? 'is-danger' : ''"
-          :message="errors.first('Slug Name')"
-        >
-          <b-input
-            v-model="slugUrl"
-            expanded
-            name="Slug Name"
-            placeholder="Slug Name"
-            v-validate="'required'"
-          />
-        </b-field>
+        <div class="columns">
+          <div class="column is-9">
+            <b-field
+              label="Slug Name"
+              custom-class="is-small"
+              :type="errors.has('Slug Name') ? 'is-danger' : ''"
+              :message="errors.first('Slug Name')"
+            >
+              <b-input
+                v-model="slugUrl"
+                expanded
+                name="Slug Name"
+                placeholder="Slug Name"
+                v-validate="'required'"
+              />
+            </b-field>
+          </div>
+          <div class="column">
+            <b-field
+              label="Category"
+              custom-class="is-small"
+              :type="errors.has('Category') ? 'is-danger': ''"
+              :message="errors.first('Category')"
+            >
+              <b-select
+                v-model="form.category_id"
+                expanded
+                name="Category"
+                placeholder="select a category"
+                v-validate="'required'"
+              >
+                <option
+                  :value="option.id"
+                  v-for="(option, index) in services.data"
+                  :key="index"
+                >{{ option.name }}</option>
+              </b-select>
+            </b-field>
+          </div>
+        </div>
         <image-upload label="Header Image" v-model="form.image" @image="isImageValid($event)" />
         <b-field
           label="Content"

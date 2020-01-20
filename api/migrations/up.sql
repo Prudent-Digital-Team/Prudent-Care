@@ -14,6 +14,7 @@ CREATE TABLE "blog" (
   "content" text NOT NULL,
   "image" jsonb not null,
   "slug" varchar(300) NOT NULL,
+  "category_id" bigint not null,
   "author" varchar(50) NOT NULL,
   "created_at" date NOT NULL DEFAULT LOCALTIMESTAMP
 );
