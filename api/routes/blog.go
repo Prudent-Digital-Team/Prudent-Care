@@ -72,13 +72,11 @@ func (pg *Blog) GetAll(c echo.Context) error {
 
 	list, count, err := pages.All(pg.Env.DB, perPage, limit)
 
-	maxlength := 200;
-	for idx, item := range(list){
-		if (idx != 0){
+	maxlength := 700;
+	for _, item := range(list){
 			out, err := utils.TruncateHtml([]byte(item.Content), maxlength, "....")
 			if err != nil{
 				log.Info(err)
-			}
 			item.Content = string(out) 
 		}
 	}
