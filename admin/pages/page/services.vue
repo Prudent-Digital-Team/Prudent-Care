@@ -37,44 +37,11 @@
             name="content"
             :disabled="EditMode"
             v-validate="'required'"
-            v-model="pageData.attributes.content.content"
+            v-model="pageData.attributes.content.serviceList"
           ></custom-editor>
         </b-field>
-        <!-- <b-table
-          :data="pageData.attributes.content.List"
-          v-if="pageData.attributes.content.List.length != 0"
-        >
-          <template slot-scope="props">
-            <b-table-column label="Content">
-              {{ props.row.content }}
-            </b-table-column>
-
-            <b-table-column label=" " class="has-text-right" v-if="!EditMode">
-              <a
-                @click="editService(props.row)"
-                class="mdi mdi-pencil icobtn"
-              ></a>
-
-              <a
-                @click="deleteService(props.index)"
-                class="mdi mdi-delete icobtn"
-              />
-            </b-table-column>
-          </template>
-
-          <template slot="empty">
-            <section class="section">
-              <div class="content has-text-grey has-text-centered">
-                <p>
-                  <i class="mdi mdi-information-outline mdi-48px" />
-                </p>
-                <p class="is-size-5">No record available</p>
-              </div>
-            </section>
-          </template>
-        </b-table>-->
       </custom-box>
-      <custom-box :title="'Section: 3'">
+      <!-- <custom-box :title="'Section: 3'">
         <b-field
           label="Content"
           custom-class="is-small"
@@ -89,7 +56,7 @@
             v-model="pageData.attributes.content.serviceList"
           ></custom-editor>
         </b-field>
-      </custom-box>
+      </custom-box>-->
     </custom-container>
   </div>
 </template>
