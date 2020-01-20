@@ -153,6 +153,15 @@ html {
 
       // ========== BLOG ================
       .blog {
+        .display-error {
+          padding: 50px 0px;
+          font-size: 70px;
+          text-align: center;
+          text-transform: capitalize;
+          font-family: "giloryLight";
+
+          color: $blue;
+        }
         .caption-blog {
           .bcontent {
             background-color: $light-grey;

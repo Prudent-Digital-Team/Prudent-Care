@@ -1,6 +1,12 @@
 <template>
   <div class="blog">
-    <div class="caption-blog">
+    <div class="display-error" v-if="!isEmpty(featured_blog)">
+      <div class="container">
+        <h1>404</h1>
+        <h2>There isn't any content yet. Please come back later</h2>
+      </div>
+    </div>
+    <div class="caption-blog" v-if="isEmpty(featured_blog)">
       <div class="bcontent">
         <nuxt-link :to="`/blog/${featured_blog.slug}`" href>
           <div class="columns">
@@ -20,7 +26,7 @@
         </nuxt-link>
       </div>
     </div>
-    <section class="blog-content" v-if="blogList.length != 0">
+    <section class="blog-content" v-if="isEmpty(blogList)">
       <div class="columns is-variable is-4-desktop is-multiline">
         <div class="column is-4" v-for="blog in blogList" :key="blog.id">
           <div class="box blog-container">
@@ -49,10 +55,41 @@
 
 <script>
 import PageMixin from "@/mixins/blog.index";
+import _ from "lodash";
 export default {
   mixins: [PageMixin],
   layout: "blog",
+  head() {
+    return {
+      title: "Blog",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "title",
+          name: "title",
+          content:
+            "Prudent Domiciliary Blog. Care Company with coverage in Coverage areas include Bexley and Royal Borough of Greenwich"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Prudent Domiciliary Care Blog, Sharing with you our ideas and write ups to our clients."
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content:
+            "Bexely, Care, BexleyCare, Bexely Dementia Care, Home Care United Kingdom, Elder Care, blog, news, United Kingdom, london, elders home,elder "
+        }
+      ]
+    };
+  },
   methods: {
+    isEmpty(value) {
+      let empty = _.isEmpty(value);
+      return empty ? false : true;
+    },
     getCategory(id) {
       let category = this.services.find(c => c.id == id);
 

@@ -46,6 +46,29 @@ import PageMixin from "@/mixins/blog.id";
 export default {
   mixins: [PageMixin],
   layout: "blog",
+  head() {
+    return {
+      title: `${this.blogItem.title} | Prudent Domiciliary Care`,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "title",
+          name: "title",
+          content: `Prudent Domiciliary Blog : ${this.blogItem.title}`
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: `${this.blogItem.title}. Prudent Domiciliary Care`
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: `${this.blogItem.name}, Bexely, Care, BexleyCare, Bexely Dementia Care, Home Care United Kingdom, Elder Care `
+        }
+      ]
+    };
+  },
   methods: {
     getCategory(id) {
       let category = this.services.find(c => c.id == id);
