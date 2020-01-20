@@ -6,7 +6,7 @@
         <h2>There isn't any content yet. Please come back later</h2>
       </div>
     </div>
-    <div class="caption-blog" v-if="isEmpty(featured_blog)">
+    <div class="caption-blog" v-if="false">
       <div class="bcontent">
         <nuxt-link :to="`/blog/${featured_blog.slug}`" href>
           <div class="columns">
@@ -35,13 +35,10 @@
               <span class="divider">&nbsp;|&nbsp;</span>
               <span class="datee">{{ blog.created_at | moment('MMMM DD, YYYY') }}</span>
             </p>
-            <div
-              class="blog-image"
-              :style="{ 'background-image': `url(/static/uploads/bobnoiq23akqr63riar0.jpg)` }"
-            ></div>
+            <div class="blog-image" :style="{ 'background-image': `url(${blog.image.data})` }"></div>
             <div class="blog-content">
               <h1 class="title">{{blog.title}}</h1>
-              <div class="bg-text" v-html="blog.content"></div>
+              <!-- <div class="bg-text" v-html="blog.content"></div> -->
             </div>
             <div class="right">
               <nuxt-link class="blog-link" :to="'/blog/'+blog.slug">READ MORE</nuxt-link>

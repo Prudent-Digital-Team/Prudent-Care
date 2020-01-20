@@ -20,7 +20,7 @@ export default {
 
     let blogList = Result.blogList.data.items;
     let featured_blog = blogList[0];
-    blogList = blogList.splice(1);
+    // blogList = blogList.splice(1);
     return { blogList, featured_blog, services: Result.serviceList.data };
   },
   methods: {
