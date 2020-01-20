@@ -242,12 +242,15 @@ html {
               }
             }
             .right {
+              position: relative;
               display: flex;
               margin-bottom: -15px;
               justify-content: flex-end;
               font-family: "giloryBold";
               font-size: 12px;
               .blog-link {
+                position: absolute;
+                top: 100px;
                 color: $blue;
               }
             }

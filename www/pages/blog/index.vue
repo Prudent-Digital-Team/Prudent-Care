@@ -41,7 +41,9 @@
               <!-- <div class="bg-text" v-html="blog.content"></div> -->
             </div>
             <div class="right">
-              <nuxt-link class="blog-link" :to="'/blog/'+blog.slug">READ MORE</nuxt-link>
+              <nuxt-link class="blog-link" :to="'/blog/'+blog.slug">
+                <button class="button is-bg-blue has-text-white">READ MORE</button>
+              </nuxt-link>
             </div>
           </div>
         </div>
