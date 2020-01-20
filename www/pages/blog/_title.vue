@@ -1,6 +1,12 @@
 <template>
   <div class="blog-inner">
-    <div class="container">
+    <div class="display-error" v-if="!isEmpty(blogItem)">
+      <div class="container">
+        <h2>Page not found</h2>
+        <nuxt-link class="is-size-3" :to="'/blog'">Go to Blog</nuxt-link>
+      </div>
+    </div>
+    <div class="container" v-if="isEmpty(blogItem)">
       <div class="blog-container">
         <div class="top-image" :style="{ 'background-image': `url(${blogItem.image.data})` }"></div>
         <div class="blog-content">

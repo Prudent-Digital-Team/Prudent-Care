@@ -56,7 +56,7 @@ func (pg *Blog) GET(db *gorm.DB, id int) error {
 
 // GET ...
 func (pg *Blog) GETBYSLUG(db *gorm.DB, slug string) error {
-	return db.Where("slug LIKE ?", slug).Find(pg).Error
+	return db.First(pg,"slug = ?", slug).Error
 }
 
 // DELETE ...

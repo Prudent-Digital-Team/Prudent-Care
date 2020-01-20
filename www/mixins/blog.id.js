@@ -21,6 +21,13 @@ export default {
     store.commit("commitServicesList", Result.serviceList.data);
 
     let blogItem = Result.blogItem;
+    if (_.isEmpty(blogItem)) {
+      blogItem = {
+        title: "",
+        name: ""
+      };
+    }
+    console.log(blogItem);
     let blogList = Result.blogList.data;
     return {
       blogItem,
@@ -37,6 +44,10 @@ export default {
     };
   },
   methods: {
+    isEmpty(value) {
+      let empty = _.isEmpty(value);
+      return empty ? false : true;
+    },
     async setPage(val) {
       let param = { page: val, offset: this.perPage };
       let params = {

@@ -256,6 +256,15 @@ html {
       }
 
       .blog-inner {
+        .display-error {
+          padding: 50px 0px;
+          font-size: 70px;
+          text-align: center;
+          text-transform: capitalize;
+          font-family: "giloryLight";
+
+          color: $blue;
+        }
         .container {
           .blog-container {
             margin-bottom: 50px;

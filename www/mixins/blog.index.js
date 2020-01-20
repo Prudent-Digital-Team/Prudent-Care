@@ -22,5 +22,11 @@ export default {
     let featured_blog = blogList[0];
     blogList = blogList.splice(1);
     return { blogList, featured_blog, services: Result.serviceList.data };
+  },
+  methods: {
+    isEmpty(value) {
+      let empty = _.isEmpty(value);
+      return empty ? false : true;
+    }
   }
 };

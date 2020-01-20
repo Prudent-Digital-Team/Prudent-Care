@@ -4,7 +4,7 @@ import (
 	"api/models"
 	"api/utils"
 	"encoding/json"
-	"fmt"
+	// "fmt"
 	"net/http"
 
 	"github.com/jinzhu/copier"
@@ -101,9 +101,9 @@ func (pg *Blog) Get(c echo.Context) error {
 	blog := new(models.Blog)
 	slug := c.Param("id")
 
-	squery := fmt.Sprintf("%%%s%%", slug)
+	// squery := fmt.Sprintf("%%%s%%", slug)
 
-	err := blog.GETBYSLUG(pg.Env.DB, squery)
+	err := blog.GETBYSLUG(pg.Env.DB, slug)
 	if err != nil {
 		res.SetError(err)
 		return c.JSON(http.StatusOK, res)

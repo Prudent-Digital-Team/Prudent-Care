@@ -86,10 +86,6 @@ export default {
     };
   },
   methods: {
-    isEmpty(value) {
-      let empty = _.isEmpty(value);
-      return empty ? false : true;
-    },
     getCategory(id) {
       let category = this.services.find(c => c.id == id);
 
