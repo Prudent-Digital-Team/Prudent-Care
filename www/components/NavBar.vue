@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       Navigation: [
-        { name: "Abouts Us", link: "/about" },
+        { name: "About Us", link: "/about" },
         { name: "Services", link: "/services" },
         { name: "Process", link: "/process" },
         { name: "Blog", link: "/blog" },
