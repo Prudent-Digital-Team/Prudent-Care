@@ -101,6 +101,7 @@ export default {
       let result = await this.$validator.validateAll()
       if (result) {
         let form = copy(this.pageData)
+        delete this.pageData.attributes.content.content
         //         form.attributes.content.content = `<ul style="list-style-type: disc;">
         // <li>&nbsp;Assist with a &lsquo;good morning&rsquo; start to the day, helping you to get up, wash, shower or bathe, dress and have breakfast</li>
         // <li>Remind or assist you to take your medicines and collect or return medication from your pharmacy or dispensing GP surgery</li>
