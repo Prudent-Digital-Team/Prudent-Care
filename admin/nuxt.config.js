@@ -50,12 +50,12 @@ export default {
     credentials: true
   },
   proxy: {
-    // '/api': 'http://127.0.0.1:5000',
-    // '/public': 'http://127.0.0.1:5000',
-    // '/static': 'http://127.0.0.1:5000'
-    '/api': 'http://admin.pbgcare.co.uk/',
-    '/public': 'http://admin.pbgcare.co.uk/',
-    '/static': 'http://admin.pbgcare.co.uk/'
+    '/api': 'http://127.0.0.1:5000',
+    '/public': 'http://127.0.0.1:5000',
+    '/static': 'http://127.0.0.1:5000'
+    // '/api': 'http://admin.pbgcare.co.uk/',
+    // '/public': 'http://admin.pbgcare.co.uk/',
+    // '/static': 'http://admin.pbgcare.co.uk/'
   },
 
   build: {
