@@ -43,6 +43,7 @@ export default {
         { name: "Process", link: "/process" },
         { name: "Blog", link: "/blog" },
         { name: "Faqs", link: "/faqs" },
+        { name: "Meal Prep", link: "/meal-prep" },
         { name: "Contact Us", link: "/contact" }
       ]
     };

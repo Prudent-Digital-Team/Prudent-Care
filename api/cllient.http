@@ -4,7 +4,7 @@
 GET http://localhost:5000/api/pages?page=1&perPage=20
 
 ###
-DELETE  http://localhost:5000/api/pages/bo9iehtrmtikuj00a4sg
+DELETE  http://admin.pbgcare.co.uk/api/pages/boulq0223akrn0g6aoi0
 
 ###
 GET http://localhost:5000/api/pages/bo9i8ndrmtil6j5747fg
@@ -15,7 +15,7 @@ Content-Type: application/json;charset=UTF-8
 
 
 ###
-POST http://admin.pbgcare.co.uk/api/pages/botfngdrmtijis4ar1p0
+POST http://admin.pbgcare.co.uk/api/pages
 Content-Type: application/json;charset=UTF-8
 
 {
@@ -35,10 +35,37 @@ Content-Type: application/json;charset=UTF-8
       ],
       "menu":{
         "description":"",
-        "List":[
-          "Roast Dinners on Sundays(fresh and delivered on sundays ready to eat)",
-          "sausage in rich onion gravy"
-        ]
+        "List": [
+            "Roast Dinners on Sundays(fresh and delivered on sundays ready to eat)",
+            "sausage in rich onion gravy",
+            "Sausages in Rich Onion Gravy",
+            "Roast Beef & Yorkshire Pudding",
+            "Chicken & Bacon Pasta Bake",
+            "Chicken Kiev with chips/mash",
+            "Chicken Breast Steam roasted chicken breast in rich gravy. Served with parsley boiled potatoes, carrots and peas",
+            "Spaghetti Bolognaise",
+            "Chilli Con Carne",
+            "Rump steak and chips",
+            "Chicken casserole ",
+            "Beef Curry with Rice",
+            "Beef Hotpot",
+            "Beef casserole ",
+            "Beef stew ",
+            "Chicken stew ",
+            "Lamb stew ",
+            "Cottage Pie",
+            "Shepherd’s Pie",
+            "Lamb chops and chips/mash",
+            "Steak & Kidney Pie and mash ",
+            "Pork Loin with mash ",
+            "Meatballs and pasta ",
+            "Fish in Parsley Sauce",
+            "Cod in Parsley Sauce",
+            "Fisherman’s Pie",
+            "Tomato & Mozzarella Pasta",
+            "Lasagne",
+            "Jacket Potato with cheese/beans "
+          ]
       },
       "Options": [
         {

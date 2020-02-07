@@ -68,7 +68,7 @@
           <button class="button is-blue" :disabled="EditMode" @click="addTag">add new menu</button>
         </template>
 
-        <b-field
+        <!-- <b-field
           label="Description"
           custom-class="is-small"
           :type="errors.has('description') ? 'is-danger' : ''"
@@ -80,7 +80,7 @@
             v-validate="'required'"
             v-model="pageData.attributes.content.menu.description"
           ></custom-editor>
-        </b-field>
+        </b-field> -->
 
         <b-collapse class="card">
           <div

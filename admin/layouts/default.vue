@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {}
-  }
+  },
 
   // async mounted() {
   //   this.$store.dispatch('api/Initialize')

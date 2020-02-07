@@ -43,7 +43,7 @@ func (pg *Pages) Init(prefix string, env *utils.Enviroment) error {
 	// Admin Routes only
 
 	rt.POST("/pages", pg.CreatePages)
-	rt.DELETE("/pages/:id", pg.DelPages)
+	// rt.DELETE("/pages/:id", pg.DelPages)
 	rt.POST("/pages/:id", pg.UpdatePages)
 	return nil
 }
