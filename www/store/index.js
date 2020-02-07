@@ -2,6 +2,17 @@ import _ from "lodash";
 
 export const state = () => ({
   servicesBanner: {},
+
+  Navigation: [
+    { name: "About Us", link: "about" },
+    { name: "Services", link: "services" },
+    { name: "Process", link: "process" },
+    { name: "Blog", link: "blog" },
+    { name: "FaQs", link: "faqs" },
+    { name: "Meal Prep", link: "meal-prep" },
+    { name: "Contact Us", link: "contact" },
+    { name: "Join Us", link: "join" }
+  ],
   settings: {
     mobile: "01322686765",
     address: "Old Street, London EC1V 9BD",
@@ -10,6 +21,7 @@ export const state = () => ({
     linkedin: "https://www.linkedin.com/company/prudent-domiciliary-care",
     instagram: "https://www.linkedin.com/company/prudent-domiciliary-care"
   },
+
   homePage: {
     image: {
       data: "",
@@ -17,6 +29,7 @@ export const state = () => ({
       size: ""
     }
   },
+
   PageData: {
     image: {
       data: "",
@@ -24,6 +37,7 @@ export const state = () => ({
       size: ""
     }
   },
+
   pagesList: [],
   servicesList: []
 });

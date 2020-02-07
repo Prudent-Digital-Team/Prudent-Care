@@ -15,28 +15,40 @@ Content-Type: application/json;charset=UTF-8
 
 
 ###
-POST http://admin.pbgcare.co.uk/api/pages/boahl6q23aks2n2kcqpg
+POST http://admin.pbgcare.co.uk/api/pages/botfngdrmtijis4ar1p0
 Content-Type: application/json;charset=UTF-8
 
 {
-      "name": "Contacts",
-      "route": "contacts",
-      "attributes": {
-        "header":{
-          "image":{}
-        },
-        "content": {
-          "List": [
-            {
-              "address": "130 Old Street, London EC1V 9BD",
-              "email": "info@pbgcare.co.uk",
-              "mobile": "01322686765",
-              "title": "Head Office"
-            }
-          ]
+  "name": "meal-prep",
+  "route": "meal-prep",
+  "attributes": {
+    "header": {
+      "image": {}
+    },
+    "content": {
+      "title": "",
+      "content": "",
+      "image": {},
+      "List": [
+       { "title":"",
+        "content":""}
+      ],
+      "menu":{
+        "description":"",
+        "List":[
+          "Roast Dinners on Sundays(fresh and delivered on sundays ready to eat)",
+          "sausage in rich onion gravy"
+        ]
+      },
+      "Options": [
+        {
+          "title": "",
+          "content": ""
         }
-      }
+      ]
     }
+  }
+}
 
 ################ BLOG routes ###################
 

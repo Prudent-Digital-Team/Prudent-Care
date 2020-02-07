@@ -399,6 +399,63 @@ html {
           }
         }
       }
+
+      // =========== Meal Prep ====================
+      .meal {
+        .meal-img {
+          min-height: 300px;
+          min-width: 200px;
+          background-size: cover;
+
+          background-repeat: no-repeat;
+        }
+        .option-section {
+          // text-align: center;
+          padding-bottom: 30px;
+          .menu {
+            padding: 20px 0px;
+            .menu-contain {
+              .menu-title {
+                padding: 5px 0px;
+                font-size: 20px;
+                text-align: center;
+                font-family: "giloryBold";
+                color: $blue;
+              }
+            }
+          }
+        }
+        .main-menu {
+          &__title {
+            font-family: "giloryBold";
+            text-align: center;
+          }
+          &__subtitle {
+            text-align: center;
+            font-family: "giloryBold";
+            color: $red;
+          }
+          &__menu-tags {
+            padding: 10px 0px;
+          }
+          &__list-horizontal {
+            ul {
+              li {
+                span.bull {
+                  color: $red;
+                  font-size: 20px;
+                }
+                display: inline;
+                color: $blue;
+                font-size: bold;
+                font-size: 18px;
+                // padding-right: 30px;
+              }
+            }
+          }
+        }
+      }
+
       // =========Join Us Page========
       .join-us {
         .pg-title {

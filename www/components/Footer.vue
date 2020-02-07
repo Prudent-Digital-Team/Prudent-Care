@@ -130,6 +130,7 @@ export default {
         { name: "Process", link: "process" },
         { name: "Blog", link: "blog" },
         { name: "FaQs", link: "faqs" },
+        { name: "Meal Prep", link: "meal" },
         { name: "Contact Us", link: "contact" },
         { name: "Join Us", link: "join" }
       ]

@@ -59,6 +59,6 @@ export default {
     }
   },
   computed: {
-    ...mapState(["PageData"])
+    ...mapState(["PageData", "Navigation"])
   }
 };
